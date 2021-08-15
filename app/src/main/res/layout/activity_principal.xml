@@ -5,19 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ligth"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.PrincipalActivity">
 
     <include android:id="@+id/appbar"
         layout="@layout/toolbar"/>
 
-    <Button
-        android:id="@+id/btnAcceder"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Acceder"
-        style="@style/botones1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

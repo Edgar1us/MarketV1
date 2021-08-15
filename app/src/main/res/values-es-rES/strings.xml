@@ -2,4 +2,7 @@
     <string name="app_name">MarketV1</string>
     <string name="market">Tienda</string>
     <string name="Acceder">Acceder</string>
+    <string name="login">Inicio Sesión</string>
+    <string name="Usuario">Usuario:</string>
+    <string name="Contraseña">Contraseña:</string>
 </resources>
