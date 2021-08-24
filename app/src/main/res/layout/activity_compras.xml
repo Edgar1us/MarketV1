@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ligth"
     tools:context=".activities.ComprasActivity">
+
+    <include android:id="@+id/appbar"
+        layout="@layout/toolbar"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import edbeca.simarro.marketv1.R;
+
 public class ComprasActivity extends AppCompatActivity {
 
     @Override
