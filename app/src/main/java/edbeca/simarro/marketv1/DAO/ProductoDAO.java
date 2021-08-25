@@ -122,4 +122,35 @@ public class ProductoDAO implements PojoDAO {
         }
         return listaProductos;
     }
+
+    public ArrayList getProductos(Usuario usuario) {
+        ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+        String condicion = "idUsuario=" + String.valueOf(usuario.getIdUsuario());
+        String[] columnas = {
+                "id", "nombre", "precio", "descripcion", "estado","tiempo", "idUsuario"
+
+        };
+        Cursor cursor = MiBD.getDB().query("productos", columnas, condicion, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
+                Producto p = new Producto();
+                p.setIdProducto(cursor.getInt(0));
+                p.setNombre(cursor.getString(1));
+                p.setPrecio(cursor.getDouble(2));
+                p.setDescripcion(cursor.getString(3));
+                p.setEstado(cursor.getString(4));
+                p.setTiempo(cursor.getInt(5));
+
+                p.setUsuario(usuario);
+
+                listaProductos.add(p);
+
+            } while (cursor.moveToNext());
+        }
+        return listaProductos;
+    }
+
+
+
 }

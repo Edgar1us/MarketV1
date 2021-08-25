@@ -19,7 +19,7 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private static final String database = "Tienda";
 
     //versión de la base de datos
-    private static final int version = 1;
+    private static final int version = 2;
 
     private String sqlCreacionUsuarios = "CREATE TABLE usuarios ( id INTEGER PRIMARY KEY AUTOINCREMENT, nombre STRING, " +
             "claveSeguridad STRING, email STRING);";
@@ -107,6 +107,11 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
 
         //INSERCION PRODUCTOS
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (1, 'Camiseta', 15.5, 'Se vende camiseta de los Rolling stones', 'Bueno', '4', 1);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (2, 'SmartTV', 300.50, 'Se vende SmartTV curved de la marca LG, con 59 pulgagas, resolución 4k', 'Bueno', '5', 1);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (3, 'Tienda de acampada', 20.0, 'Con capacidad para 4 personas, fresh black', 'Semi-nuevo', '2', 1);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (4, 'Xiaomi A2', 70.85, 'Se vende smartphone de segunda mano', 'Bueno', '6', 1);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (5, 'Globo terrestre', 5, 'Se vende globo terrestre con leds', 'Bueno', '15', 1);");
+
 
     }
 

@@ -85,7 +85,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/btPosGlobal"
+                android:id="@+id/btnComprar"
                 style="@style/BotonesNormal"
                 android:contentDescription="TODO"
                 android:scaleType="fitCenter"
@@ -93,7 +93,7 @@
                 app:srcCompat="@drawable/comprar" />
 
             <ImageButton
-                android:id="@+id/btCambiarClave"
+                android:id="@+id/btnVender"
                 style="@style/BotonesNormal"
                 android:contentDescription="TODO"
                 android:scaleType="fitCenter"
