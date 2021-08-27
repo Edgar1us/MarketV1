@@ -7,6 +7,6 @@
     <string name="Contraseña">Contraseña:</string>
     <string name="Comprar">Comprar</string>
     <string name="Vender">Vender</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tituloVender">Mis productos en venta</string>
+    <string name="ProductosEnVenta">Productos en venta</string>
 </resources>

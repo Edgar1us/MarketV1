@@ -19,7 +19,7 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private static final String database = "Tienda";
 
     //versión de la base de datos
-    private static final int version = 2;
+    private static final int version = 3;
 
     private String sqlCreacionUsuarios = "CREATE TABLE usuarios ( id INTEGER PRIMARY KEY AUTOINCREMENT, nombre STRING, " +
             "claveSeguridad STRING, email STRING);";
@@ -111,6 +111,7 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (3, 'Tienda de acampada', 20.0, 'Con capacidad para 4 personas, fresh black', 'Semi-nuevo', '2', 1);");
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (4, 'Xiaomi A2', 70.85, 'Se vende smartphone de segunda mano', 'Bueno', '6', 1);");
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (5, 'Globo terrestre', 5, 'Se vende globo terrestre con leds', 'Bueno', '15', 1);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (6, 'Altavoz Sony', 5, 'Se vende altavoz', 'Regular', '15', 2);");
 
 
     }

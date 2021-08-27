@@ -5,4 +5,8 @@
     <string name="login">Inicio Sesión</string>
     <string name="Usuario">Usuario:</string>
     <string name="Contraseña">Contraseña:</string>
+    <string name="Comprar">Comprar</string>
+    <string name="Vender">Vender</string>
+    <string name="tituloVender">Mis productos en venta</string>
+    <string name="ProductosEnVenta">Productos en venta</string>
 </resources>

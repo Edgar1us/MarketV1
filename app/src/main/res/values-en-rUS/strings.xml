@@ -5,4 +5,8 @@
     <string name="login">Log in</string>
     <string name="Usuario">User:</string>
     <string name="Contraseña">Password:</string>
+    <string name="Comprar">Buy</string>
+    <string name="Vender">Sell</string>
+    <string name="tituloVender">My products for sell</string>
+    <string name="ProductosEnVenta">Productos for sell</string>
 </resources>

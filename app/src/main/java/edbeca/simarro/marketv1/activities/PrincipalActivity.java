@@ -17,7 +17,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
 
     private TextView txtBienvenida;
     private Usuario usuario;
-    private ImageButton btnVender;
+    private ImageButton btnVender, btnComprar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +30,32 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         txtBienvenida.setText(usuario.getNombre());
 
         btnVender = (ImageButton)findViewById(R.id.btnVender);
+        btnComprar = (ImageButton)findViewById(R.id.btnComprar);
         btnVender.setOnClickListener(this);
+        btnComprar.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
 
-        Intent i = new Intent(this, VentasActivity.class);
-        i.putExtra("Usuario", usuario);
-        startActivity(i);
+        Intent intent;
+        switch (view.getId()){
+            case R.id.btnComprar:
+                intent = new Intent(view.getContext(), ComprasActivity.class);
+                intent.putExtra("Usuario", usuario);
+                startActivity(intent);
+                break;
 
+            case R.id.btnVender:
+                intent = new Intent(view.getContext(), VentasActivity.class);
+                intent.putExtra("Usuario", usuario);
+                startActivity(intent);
+                break;
+
+        }
     }
+
+
+
 }
