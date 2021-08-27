@@ -10,28 +10,57 @@
     <include android:id="@+id/appbar"
         layout="@layout/toolbar"/>
 
-    <Button
-        android:id="@+id/btnAcceder"
-        android:layout_width="wrap_content"
+    <TextView
+        style="@style/titulo1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Acceder"
-        style="@style/botones1"
+        android:text="@string/bienvenido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.443" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="111dp"
-        android:layout_height="69dp"
-        android:background="#0000CCFF"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/indigo"
         android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/appbar"
-        app:layout_constraintVertical_bias="0.096"
+        app:layout_constraintVertical_bias="0.231"
         app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnAcceder"
+        style="@style/botones1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Acceder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.636" />
+
+    <Button
+        android:id="@+id/btnRegistrame"
+        style="@style/botones1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/crearcuenta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

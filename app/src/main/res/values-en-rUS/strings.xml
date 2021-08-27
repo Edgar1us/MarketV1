@@ -8,5 +8,6 @@
     <string name="Comprar">Buy</string>
     <string name="Vender">Sell</string>
     <string name="tituloVender">My products for sell</string>
-    <string name="ProductosEnVenta">Productos for sell</string>
+    <string name="ProductosEnVenta">Products on sell</string>
+    <string name="crearcuenta">Create account</string>
 </resources>
