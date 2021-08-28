@@ -11,7 +11,7 @@ import edbeca.simarro.marketv1.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnAcceder;
+    private Button btnAcceder, btnRegistrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +19,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btnAcceder = (Button)findViewById(R.id.btnAcceder);
+        btnRegistrame = (Button)findViewById(R.id.btnRegistrame);
 
         btnAcceder.setOnClickListener(this);
+        btnRegistrame.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
+        Intent i;
+        switch (view.getId()){
+            case R.id.btnAcceder:
+                i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btnRegistrame:
+                i = new Intent(this, CrearCuentaActivity.class);
+                startActivity(i);
+                break;
+        }
     }
 }
