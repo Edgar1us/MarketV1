@@ -12,4 +12,5 @@
     <string name="crearcuenta">Crear cuenta</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="email">correo electrónico</string>
+    <string name="add">Añadir</string>
 </resources>

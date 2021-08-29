@@ -12,4 +12,10 @@
     <string name="crearcuenta">Crear cuenta</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="email">correo electrónico</string>
+    <string name="add">Añadir</string>
+    <string name="nombre">Nombre</string>
+    <string name="precio">Precio</string>
+    <string name="descripcion">Descripción</string>
+    <string name="estado">Estado</string>
+    <string name="tiempo">Tiempo</string>
 </resources>
