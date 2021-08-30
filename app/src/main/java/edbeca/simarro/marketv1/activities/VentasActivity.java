@@ -46,6 +46,7 @@ public class VentasActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
 
         Intent i = new Intent(this, NuevoActivity.class);
+        i.putExtra("Usuario", usuario);
         startActivity(i);
 
     }
