@@ -2,6 +2,7 @@ package edbeca.simarro.marketv1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -39,6 +40,12 @@ public class ComprasActivity extends AppCompatActivity implements ComprasListene
 
     @Override
     public void onProductoSeleccionado(Producto producto) {
-        Toast.makeText(this, "Vas a comprar " + producto.getNombre(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Vas a comprar " + producto.getNombre(), Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(this, DetalleActivity.class);
+        i.putExtra("Usuario", usuario);
+        i.putExtra("Producto", producto);
+        startActivity(i);
+
     }
 }
