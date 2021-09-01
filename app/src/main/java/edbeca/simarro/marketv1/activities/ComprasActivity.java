@@ -3,13 +3,16 @@ package edbeca.simarro.marketv1.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import edbeca.simarro.marketv1.BD.MiTiendaOperacional;
 import edbeca.simarro.marketv1.R;
 import edbeca.simarro.marketv1.fragments.ComprasFragment;
+import edbeca.simarro.marketv1.fragments.ComprasListener;
+import edbeca.simarro.marketv1.pojo.Producto;
 import edbeca.simarro.marketv1.pojo.Usuario;
 
-public class ComprasActivity extends AppCompatActivity {
+public class ComprasActivity extends AppCompatActivity implements ComprasListener {
 
     private Usuario usuario;
     private MiTiendaOperacional mto;
@@ -30,6 +33,12 @@ public class ComprasActivity extends AppCompatActivity {
 
         fCompras.setArguments(bundle);
         fCompras.mostrarProductosEnVenta();
+        fCompras.setComprasListener(this);
 
+    }
+
+    @Override
+    public void onProductoSeleccionado(Producto producto) {
+        Toast.makeText(this, "Vas a comprar " + producto.getNombre(), Toast.LENGTH_SHORT).show();
     }
 }

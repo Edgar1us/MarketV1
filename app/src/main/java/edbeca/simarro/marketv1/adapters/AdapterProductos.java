@@ -35,9 +35,11 @@ public class AdapterProductos<T> extends ArrayAdapter<T> {
         }
 
         TextView nombre = (TextView)listItemView.findViewById(R.id.txtNombre);
+        TextView precio = (TextView)listItemView.findViewById(R.id.txtPrecio);
 
         Producto item = (Producto)getItem(position);
         nombre.setText(item.getNombre());
+        precio.setText(Double.toString(item.getPrecio()));
 
         return listItemView;
 
