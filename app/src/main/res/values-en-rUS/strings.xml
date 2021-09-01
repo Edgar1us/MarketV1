@@ -13,4 +13,9 @@
     <string name="bienvenido">Welcome</string>
     <string name="email">email</string>
     <string name="add">Add</string>
+    <string name="nombre">Name</string>
+    <string name="precio">Price</string>
+    <string name="descripcion">Description</string>
+    <string name="estado">State</string>
+    <string name="tiempo">Time</string>
 </resources>

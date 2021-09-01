@@ -9,9 +9,18 @@ public class Usuario implements Serializable {
     private String nombre;
     private String claveSeguridad;
     private String email;
+    private Double dinero;
     private ArrayList<Producto> productos;
 
     public Usuario() {
+    }
+
+    public Usuario(String nombre, String claveSeguridad, String email, Double dinero) {
+        this.nombre = nombre;
+        this.claveSeguridad = claveSeguridad;
+        this.email = email;
+        this.dinero = dinero;
+        this.productos = new ArrayList<Producto>();
     }
 
     public Usuario(String nombre, String claveSeguridad, String email) {
@@ -53,6 +62,14 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
+    public Double getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(Double dinero) {
+        this.dinero = dinero;
+    }
+
     public ArrayList<Producto> getProductos() {
         return productos;
     }
@@ -61,6 +78,8 @@ public class Usuario implements Serializable {
         this.productos = productos;
     }
 
+
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -68,6 +87,7 @@ public class Usuario implements Serializable {
                 ", nombre='" + nombre + '\'' +
                 ", claveSeguridad='" + claveSeguridad + '\'' +
                 ", email='" + email + '\'' +
+                ", dinero='" + dinero + '\'' +
                 '}';
     }
 

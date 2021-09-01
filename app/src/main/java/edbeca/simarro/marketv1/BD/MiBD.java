@@ -19,10 +19,10 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private static final String database = "Tienda";
 
     //versión de la base de datos
-    private static final int version = 3;
+    private static final int version = 4;
 
     private String sqlCreacionUsuarios = "CREATE TABLE usuarios ( id INTEGER PRIMARY KEY AUTOINCREMENT, nombre STRING, " +
-            "claveSeguridad STRING, email STRING);";
+            "claveSeguridad STRING, email STRING, dinero DOUBLE);";
 
     //Creacion de la tabla productos
     private String sqlCreacionProductos = "CREATE TABLE productos ( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -89,21 +89,21 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private void insercionDatos(SQLiteDatabase db){
 
         //INSERCIÓN USUARIOS
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (1, 'edgar', '1234', 'edgar.gmail.com');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (2, 'oscar', '1234', 'oscar.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (3, 'pepe', '1234', 'pepe.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (4, 'mortadelo', '1234', 'mortadelo.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (5, 'sancho', '1234', 'sancho.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (6, 'quijote', '1234', 'quijote.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (7, 'jorge', '1234', 'jorge.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (8, 'jordi', '1234', 'jordi.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (9, 'borja', '1234', 'borja.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (10, 'miguel', '1234', 'miguel.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (11, 'andreu', '1234', 'andreu.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (12, 'laura', '1234', 'laura.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (13, 'dani', '1234', 'dani.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (14, 'manu', '1234', 'manu.pitia.es');");
-        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email) VALUES (15, 'herme', '1234', 'herme.pitia.es');");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (1, 'edgar', '1234', 'edgar.gmail.com', 1000.50);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (2, 'oscar', '1234', 'oscar.pitia.es', 2000.50);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (3, 'pepe', '1234', 'pepe.pitia.es', 3000.50);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (4, 'mortadelo', '1234', 'mortadelo.pitia.es', 4000.50);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (5, 'sancho', '1234', 'sancho.pitia.es', 1564.1235);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (6, 'quijote', '1234', 'quijote.pitia.es', 2542.125);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (7, 'jorge', '1234', 'jorge.pitia.es', 810.123);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (8, 'jordi', '1234', 'jordi.pitia.es', 155.00);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (9, 'borja', '1234', 'borja.pitia.es', 5213654.1552);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (10, 'miguel', '1234', 'miguel.pitia.es', 410.60);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (11, 'andreu', '1234', 'andreu.pitia.es', 9871.23);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (12, 'laura', '1234', 'laura.pitia.es', 59.3289);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (13, 'dani', '1234', 'dani.pitia.es', 456.123);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (14, 'manu', '1234', 'manu.pitia.es', 12.58);");
+        db.execSQL("INSERT INTO usuarios(id, nombre, claveSeguridad, email, dinero) VALUES (15, 'herme', '1234', 'herme.pitia.es', 47.63954);");
 
         //INSERCION PRODUCTOS
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (1, 'Camiseta', 15.5, 'Se vende camiseta de los Rolling stones', 'Bueno', '4', 1);");

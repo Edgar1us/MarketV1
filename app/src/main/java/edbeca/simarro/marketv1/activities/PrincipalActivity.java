@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -48,6 +49,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.btnVender:
+                Toast.makeText(this, Double.toString(usuario.getDinero()), Toast.LENGTH_SHORT).show();
                 intent = new Intent(view.getContext(), VentasActivity.class);
                 intent.putExtra("Usuario", usuario);
                 startActivity(intent);
