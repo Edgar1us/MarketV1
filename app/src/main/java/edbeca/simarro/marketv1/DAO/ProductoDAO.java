@@ -75,7 +75,7 @@ public class ProductoDAO implements PojoDAO {
 
             // Obtenemos el cliente y lo asignamos
             Usuario a = new Usuario();
-            a.setIdUsuario(cursor.getInt(5));
+            a.setIdUsuario(cursor.getInt(6));
             a = (Usuario) MiBD.getInstance(null).getUsuarioDAO().search(a);
             p.setUsuario(a);
 
@@ -109,7 +109,7 @@ public class ProductoDAO implements PojoDAO {
 
                 // Obtenemos el cliente y lo asignamos
                 Usuario a = new Usuario();
-                a.setIdUsuario(cursor.getInt(5));
+                a.setIdUsuario(cursor.getInt(6));
                 a = (Usuario) MiBD.getInstance(null).getUsuarioDAO().search(a);
                 p.setUsuario(a);
 

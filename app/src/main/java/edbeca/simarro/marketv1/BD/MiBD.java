@@ -10,7 +10,10 @@ import androidx.annotation.Nullable;
 import java.io.Serializable;
 
 import edbeca.simarro.marketv1.DAO.ProductoDAO;
+import edbeca.simarro.marketv1.DAO.TransaccionDAO;
 import edbeca.simarro.marketv1.DAO.UsuarioDAO;
+import edbeca.simarro.marketv1.pojo.Transaccion;
+import edbeca.simarro.marketv1.pojo.Usuario;
 
 public class MiBD extends SQLiteOpenHelper implements Serializable {
 
@@ -19,7 +22,7 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private static final String database = "Tienda";
 
     //versión de la base de datos
-    private static final int version = 4;
+    private static final int version = 6;
 
     private String sqlCreacionUsuarios = "CREATE TABLE usuarios ( id INTEGER PRIMARY KEY AUTOINCREMENT, nombre STRING, " +
             "claveSeguridad STRING, email STRING, dinero DOUBLE);";
@@ -28,11 +31,15 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     private String sqlCreacionProductos = "CREATE TABLE productos ( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre STRING, precio DOUBLE, descripcion STRING, estado STRING, tiempo INTEGER, idUsuario INTEGER);";
 
+    private String sqlCreacionTransacciones = "CREATE TABLE transacciones ( id INTEGER PRIMARY KEY AUTOINCREMENT, tipo INTEGER, fecha LONG," +
+            " descripcion STRING, importe DOUBLE, idusuarioorigen INTEGER, idusuariodestino INTEGER);";
+
 
     private static MiBD instance = null;
 
     private static UsuarioDAO usuarioDAO;
     private static ProductoDAO productoDAO;
+    private static TransaccionDAO transaccionDAO;
 
     public UsuarioDAO getUsuarioDAO() {
         return usuarioDAO;
@@ -42,12 +49,15 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
         return productoDAO;
     }
 
+    public TransaccionDAO getTransaccionDAO(){return transaccionDAO;}
+
     public static MiBD getInstance(Context context) {
         if(instance == null) {
             instance = new MiBD(context);
             db = instance.getWritableDatabase();
             usuarioDAO = new UsuarioDAO();
             productoDAO = new ProductoDAO();
+            transaccionDAO = new TransaccionDAO();
         }
         return instance;
     }
@@ -65,6 +75,7 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(sqlCreacionUsuarios);
         db.execSQL(sqlCreacionProductos);
+        db.execSQL(sqlCreacionTransacciones);
         insercionDatos(db);
         Log.i("SQLite", "Se crea la base de datos " + database + " version " + version);
     }
@@ -77,9 +88,11 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
             //elimina tabla
             db.execSQL( "DROP TABLE IF EXISTS usuarios" );
             db.execSQL( "DROP TABLE IF EXISTS productos" );
+            db.execSQL( "DROP TABLE IF EXISTS transacciones" );
             //y luego creamos la nueva tabla
             db.execSQL(sqlCreacionUsuarios);
             db.execSQL(sqlCreacionProductos);
+            db.execSQL(sqlCreacionTransacciones);
 
             insercionDatos(db);
             Log.i("SQLite", "Se actualiza versión de la base de datos, New version= " + newVersion  );
@@ -111,9 +124,13 @@ public class MiBD extends SQLiteOpenHelper implements Serializable {
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (3, 'Tienda de acampada', 20.0, 'Con capacidad para 4 personas, fresh black', 'Semi-nuevo', '2', 1);");
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (4, 'Xiaomi A2', 70.85, 'Se vende smartphone de segunda mano', 'Bueno', '6', 1);");
         db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (5, 'Globo terrestre', 5, 'Se vende globo terrestre con leds', 'Bueno', '15', 1);");
-        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (6, 'Altavoz Sony', 5, 'Se vende altavoz', 'Regular', '15', 2);");
+        db.execSQL("INSERT INTO productos(id, nombre, precio, descripcion, estado, tiempo, idUsuario) VALUES (6, 'Altavoz Sony', 5, 'Se vende altavoz', 'Regular', '16', 2);");
 
 
+    }
+
+    public void actualizarDinero(Usuario u){
+        db.execSQL("UPDATE usuarios SET dinero= "+u.getDinero()+" WHERE nombre='"+u.getNombre()+"' AND claveSeguridad='"+u.getClaveSeguridad()+"' AND email='"+u.getEmail()+"';");
     }
 
 }

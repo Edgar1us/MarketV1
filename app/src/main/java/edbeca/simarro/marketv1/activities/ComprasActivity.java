@@ -40,7 +40,7 @@ public class ComprasActivity extends AppCompatActivity implements ComprasListene
 
     @Override
     public void onProductoSeleccionado(Producto producto) {
-        //Toast.makeText(this, "Vas a comprar " + producto.getNombre(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Producto de  " + producto.getUsuario().getNombre(), Toast.LENGTH_SHORT).show();
 
         Intent i = new Intent(this, DetalleActivity.class);
         i.putExtra("Usuario", usuario);
