@@ -18,7 +18,7 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
 
     private Usuario usuario;
     private Producto producto;
-    private TextView dNombre, dPrecio, dDesc, dTiempo, dEstado;
+    private TextView dNombre, dPrecio, dDesc, dTiempo, dEstado, txtUser;
     private Button comprar;
     private MiBD miBD;
 
@@ -37,12 +37,14 @@ public class DetalleActivity extends AppCompatActivity implements View.OnClickLi
         dDesc = (TextView)findViewById(R.id.detalleDesc);
         dTiempo = (TextView)findViewById(R.id.detalleTiempo);
         dEstado = (TextView)findViewById(R.id.detalleEstado);
+        txtUser = (TextView)findViewById(R.id.txtUser);
 
         dNombre.setText(producto.getNombre());
         dPrecio.setText(Double.toString(producto.getPrecio()));
         dDesc.setText(producto.getDescripcion());
         dTiempo.setText(Integer.toString(producto.getTiempo()));
         dEstado.setText(producto.getEstado());
+        txtUser.setText("Vendido por: " + producto.getUsuario().getNombre());
 
         comprar = (Button)findViewById(R.id.comprar);
         comprar.setOnClickListener(this);
