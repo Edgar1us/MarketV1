@@ -1,9 +1,12 @@
 package edbeca.simarro.marketv1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +28,9 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+
         usuario = (Usuario)getIntent().getSerializableExtra("Usuario");
 
         txtBienvenida = (TextView)findViewById(R.id.txtBienvenida);
@@ -35,6 +41,28 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         btnVender.setOnClickListener(this);
         btnComprar.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!usuario.getNombre().equals(""))
+            getMenuInflater().inflate(R.menu.menu_usuario, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i = new Intent();
+        switch (item.getItemId()) {
+            case R.id.menu_usuario:
+                i.setClass(PrincipalActivity.this, UsuarioActivity.class);
+                break;
+
+        }
+        i.putExtra("Usuario", usuario);
+        startActivity(i);
+
+        return true;
     }
 
     @Override

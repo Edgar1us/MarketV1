@@ -18,4 +18,5 @@
     <string name="descripcion">Descripción</string>
     <string name="estado">Estado</string>
     <string name="tiempo">Tiempo</string>
+    <string name="action_usuario">action_usuario</string>
 </resources>
