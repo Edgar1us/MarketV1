@@ -53,6 +53,20 @@ public class UsuarioDAO implements PojoDAO {
         return resultado;
     }
 
+    public long updateBD(ContentValues reg) {
+        long result = 0;
+        if (db == null)
+            abrir();
+        if (reg.containsKey(FIELD_USUARIO_ID)) {
+
+            long id = reg.getAsLong(FIELD_USUARIO_ID);
+            reg.remove(FIELD_USUARIO_ID);
+
+            result = db.update(C_TABLA, reg, "id=" + id, null);
+        }
+        return result;
+    }
+
     @Override
     public void delete(Object obj) {
 

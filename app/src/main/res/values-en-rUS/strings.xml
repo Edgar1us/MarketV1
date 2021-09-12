@@ -19,4 +19,9 @@
     <string name="estado">State</string>
     <string name="tiempo">Time</string>
     <string name="action_usuario">action_user</string>
+    <string name="usuario_editar_titulo">Edit user</string>
+    <string name="boton_cancelar">Cancel</string>
+    <string name="boton_guardar">Save</string>
+    <string name="dinero">Money</string>
+    <string name="usuario_editar_confirmacion">User modified</string>
 </resources>

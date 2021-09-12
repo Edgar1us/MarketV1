@@ -6,8 +6,9 @@ public class Constantes {
     public static final String FIELD_NOMBRE = "nombre";
     public static final String FIELD_CLAVE = "claveSeguridad";
     public static final String FIELD_EMAIL = "email";
+    public static final String FIELD_DINERO = "dinero";
 
-    public static final String[] CAMPOS_USUARIO = new String[]{FIELD_USUARIO_ID,FIELD_NOMBRE,FIELD_CLAVE,FIELD_EMAIL};
+    public static final String[] CAMPOS_USUARIO = new String[]{FIELD_USUARIO_ID,FIELD_NOMBRE,FIELD_CLAVE,FIELD_EMAIL, FIELD_DINERO};
 
     public static final String C_MODO = "modo";
     public static final int C_VISUALIZAR = 551;

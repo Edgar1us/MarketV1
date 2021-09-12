@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import edbeca.simarro.marketv1.BD.Constantes;
 import edbeca.simarro.marketv1.R;
 import edbeca.simarro.marketv1.pojo.Usuario;
 
@@ -56,11 +57,16 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         switch (item.getItemId()) {
             case R.id.menu_usuario:
                 i.setClass(PrincipalActivity.this, UsuarioActivity.class);
+                i.putExtra(Constantes.C_MODO, Constantes.C_VISUALIZAR);
+                i.putExtra(Constantes.FIELD_USUARIO_ID, usuario.getIdUsuario());
+                startActivityForResult(i, Constantes.C_VISUALIZAR);
                 break;
 
         }
-        i.putExtra("Usuario", usuario);
-        startActivity(i);
+        if (item.getItemId() != R.id.menu_usuario){
+            i.putExtra("Usuario", usuario);
+            startActivity(i);
+        }
 
         return true;
     }
