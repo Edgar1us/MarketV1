@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.UsuarioActivity"></activity>
+        <activity android:name=".activities.PreferenceActivity" />
+        <activity android:name=".activities.UsuarioActivity"/>
         <activity android:name=".activities.DetalleActivity" />
         <activity android:name=".activities.NuevoActivity" />
         <activity android:name=".activities.CrearCuentaActivity" />

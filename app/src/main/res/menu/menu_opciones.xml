@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.HomeActivity">
+
+    <item android:id="@+id/action_cambiarClave"
+        android:title="@string/cambiarClave"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_configuracion"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_mapa"
+        android:title="@string/action_mapa"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_usuario"
+        android:icon="@drawable/usuario"
+        android:orderInCategory="3"
+        android:title="@string/action_usuario"
+        app:showAsAction="ifRoom|withText" />
+
+</menu>

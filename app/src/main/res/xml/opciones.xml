@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:id="@+id/rMusica"
+        android:key="reproducirMusica"
+        android:title="@string/musica"
+        android:summary="@string/escucharMusica" />
+
+    <ListPreference
+        android:key="idioma"
+        android:title="@string/idiomaAplicacion"
+        android:summary="@string/idioma"
+        android:dialogTitle="@string/indicarIdioma"
+        android:entries="@array/idioma"
+        android:entryValues="@array/codigoIdioma" />
+
+    <ListPreference
+        android:key="fuentes_letras_botones"
+        android:title="@string/tipoLetra"
+        android:summary="@string/fuente"
+        android:dialogTitle="@string/IndicarLetra"
+        android:entries="@array/fuentes"
+        android:entryValues="@array/codigoFuentes" />
+
+    <ListPreference
+        android:key="color_fondo_botones"
+        android:title="@string/colorBotones"
+        android:summary="@string/eligeColorBotones"
+        android:dialogTitle="@string/IndicarColorFondo"
+        android:entries="@array/coloresFondo"
+        android:entryValues="@array/codigoColoresFondo" />
+
+</PreferenceScreen>

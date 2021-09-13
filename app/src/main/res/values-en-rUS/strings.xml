@@ -24,4 +24,18 @@
     <string name="boton_guardar">Save</string>
     <string name="dinero">Money</string>
     <string name="usuario_editar_confirmacion">User modified</string>
+    <string name="cambiarClave">Change password</string>
+    <string name="action_settings">Configuration</string>
+    <string name="action_mapa">Map</string>
+    <string name="musica">Music</string>
+    <string name="escucharMusica">Listen characteristic music</string>
+    <string name="idiomaAplicacion">Language of the application</string>
+    <string name="idioma">Choose your language</string>
+    <string name="indicarIdioma">Indicate your language</string>
+    <string name="tipoLetra">Font type</string>
+    <string name="IndicarLetra">Font</string>
+    <string name="fuente">Choose your font type</string>
+    <string name="colorBotones">Buttons color</string>
+    <string name="eligeColorBotones">Customize the buttons</string>
+    <string name="IndicarColorFondo">Color</string>
 </resources>

@@ -47,7 +47,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!usuario.getNombre().equals(""))
-            getMenuInflater().inflate(R.menu.menu_usuario, menu);
+            getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
 
@@ -60,6 +60,15 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 i.putExtra(Constantes.C_MODO, Constantes.C_VISUALIZAR);
                 i.putExtra(Constantes.FIELD_USUARIO_ID, usuario.getIdUsuario());
                 startActivityForResult(i, Constantes.C_VISUALIZAR);
+                break;
+            case R.id.action_cambiarClave:
+                //i.setClass(PrincipalActivity.this, CambiarClaveActivity.class);
+                break;
+            case R.id.action_configuracion:
+                i.setClass(PrincipalActivity.this, PreferenceActivity.class);
+                break;
+            case R.id.action_mapa:
+                //i.setClass(PrincipalActivity.this, MapaActivity.class);
                 break;
 
         }
