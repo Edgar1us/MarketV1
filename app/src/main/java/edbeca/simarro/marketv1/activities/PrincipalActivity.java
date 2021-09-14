@@ -62,7 +62,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 startActivityForResult(i, Constantes.C_VISUALIZAR);
                 break;
             case R.id.action_cambiarClave:
-                //i.setClass(PrincipalActivity.this, CambiarClaveActivity.class);
+                i.setClass(PrincipalActivity.this, CambiarClaveActivity.class);
                 break;
             case R.id.action_configuracion:
                 i.setClass(PrincipalActivity.this, PreferenceActivity.class);
