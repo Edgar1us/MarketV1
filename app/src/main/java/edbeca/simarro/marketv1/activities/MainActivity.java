@@ -1,20 +1,27 @@
 package edbeca.simarro.marketv1.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import edbeca.simarro.marketv1.R;
+
+import static edbeca.simarro.marketv1.activities.PrincipalActivity.botones;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Locale localizacion;
     MediaPlayer mediaPlayer;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAcceder.setOnClickListener(this);
         btnRegistrame.setOnClickListener(this);
 
+        botones = new ArrayList<>();
+        botones.add(btnAcceder = findViewById(R.id.btnAcceder));
+        botones.add(btnRegistrame = findViewById(R.id.btnRegistrame));
+
+        prefsManager = PreferenceManager.getDefaultSharedPreferences(this);
+        colorFondoBotones(prefsManager);
+
     }
 
     @Override
@@ -76,4 +91,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    @SuppressLint("WrongConstant")
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void colorFondoBotones(SharedPreferences pref){
+        if (!pref.getString("color_fondo_botones", "").isEmpty()){
+            for (Button boton : botones){
+                boton.setBackgroundColor(Color.parseColor(pref.getString("color_fondo_botones", "")));
+            }
+        }else
+            for (Button boton : botones){
+                boton.setScrollBarStyle(R.style.BotonesNormal);
+            }
+    }
+
 }

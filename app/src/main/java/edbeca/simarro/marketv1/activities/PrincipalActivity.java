@@ -1,18 +1,25 @@
 package edbeca.simarro.marketv1.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
 import edbeca.simarro.marketv1.BD.Constantes;
 import edbeca.simarro.marketv1.R;
@@ -23,6 +30,8 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
     private TextView txtBienvenida;
     private Usuario usuario;
     private ImageButton btnVender, btnComprar;
+
+    public static ArrayList<Button> botones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,11 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         btnVender.setOnClickListener(this);
         btnComprar.setOnClickListener(this);
 
+        botones = new ArrayList<>();
+        /*botones.add(btnVender = findViewById(R.id.btnVender));
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        colorFondoBotones(pref);*/
     }
 
     @Override
@@ -101,6 +115,17 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
+    @SuppressLint("WrongConstant")
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void colorFondoBotones(SharedPreferences pref){
+        if (!pref.getString("color_fondo_botones", "").isEmpty()){
+            for (Button boton : botones){
+                boton.setBackgroundColor(Color.parseColor(pref.getString("color_fondo_botones", "")));
+            }
+        }else
+            for (Button boton : botones){
+                boton.setScrollBarStyle(R.style.BotonesNormal);
+            }
+    }
 
 }

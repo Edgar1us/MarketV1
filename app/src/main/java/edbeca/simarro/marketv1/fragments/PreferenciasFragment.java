@@ -3,8 +3,10 @@ package edbeca.simarro.marketv1.fragments;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.preference.Preference;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import java.util.Locale;
 
 import edbeca.simarro.marketv1.R;
+import edbeca.simarro.marketv1.activities.PrincipalActivity;
 
 
 public class PreferenciasFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -48,6 +51,7 @@ public class PreferenciasFragment extends PreferenceFragment implements SharedPr
                 .unregisterOnSharedPreferenceChangeListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if(key.equals("idioma")){
@@ -74,6 +78,11 @@ public class PreferenciasFragment extends PreferenceFragment implements SharedPr
                 mediaPlayer.stop();
                 Log.i("Stop", "");
             }
+        }
+
+        if(key.equals("color_fondo_botones")){
+
+            PrincipalActivity.colorFondoBotones(sharedPreferences);
         }
     }
 }
