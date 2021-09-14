@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,17 @@ public class PreferenciasFragment extends PreferenceFragment implements SharedPr
             config = new Configuration();
             config.locale = localizacion;
             getResources().updateConfiguration(config, null);
+        }
+
+        if(key.equals("reproducirMusica")){
+            mediaPlayer = MediaPlayer.create(context.getActivity(), R.raw.sound_relax);
+            if (sharedPreferences.getBoolean(key,false) == true){
+                mediaPlayer.start();
+                Log.i("Start", "");
+            }else {
+                mediaPlayer.stop();
+                Log.i("Stop", "");
+            }
         }
     }
 }

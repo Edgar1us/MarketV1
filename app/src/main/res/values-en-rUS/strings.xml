@@ -38,4 +38,6 @@
     <string name="colorBotones">Buttons color</string>
     <string name="eligeColorBotones">Customize the buttons</string>
     <string name="IndicarColorFondo">Color</string>
+    <string name="claveVieja">Current password</string>
+    <string name="claveNueva">New password</string>
 </resources>

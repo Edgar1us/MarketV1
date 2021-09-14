@@ -2,12 +2,16 @@ package edbeca.simarro.marketv1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,6 +99,9 @@ public class UsuarioActivity extends AppCompatActivity {
             }
         });
 
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        fuenteTextoBotones(pref);
+
     }
 
     private void cancelar() {
@@ -169,6 +176,38 @@ public class UsuarioActivity extends AppCompatActivity {
             this.setTitle(R.string.usuario_editar_titulo);
             this.setEdicion(true);
         }
+    }
+
+    public void fuenteTextoBotones(SharedPreferences pref) {
+        if (!pref.getString("fuentes_letras_botones", "").isEmpty()){
+            Typeface typeface = fuentePreferencia(pref);
+
+            TextView tNombre = (TextView) findViewById(R.id.tNombre);
+            tNombre.setTypeface(typeface);
+            TextView tPassword = (TextView) findViewById(R.id.tPassword);
+            tPassword.setTypeface(typeface);
+            TextView tEmail = (TextView) findViewById(R.id.tEmail);
+            tEmail.setTypeface(typeface);
+            TextView tDinero = (TextView) findViewById(R.id.tDinero);
+            tDinero.setTypeface(typeface);
+        }
+    }
+
+    public Typeface fuentePreferencia(SharedPreferences pref) {
+        switch (pref.getString("fuentes_letras_botones", "")) {
+            case "open":
+                return ResourcesCompat.getFont(getApplicationContext(), R.font.opensans);
+            case "alexa":
+                return ResourcesCompat.getFont(getApplicationContext(), R.font.alexandria);
+            case "bodoni":
+                return ResourcesCompat.getFont(getApplicationContext(), R.font.bodoni);
+            case "playball":
+                return ResourcesCompat.getFont(getApplicationContext(), R.font.playball);
+            case "remachine":
+                return ResourcesCompat.getFont(getApplicationContext(), R.font.remachine);
+        }
+        //return getResources().getFont(R.font.opensans);
+        return ResourcesCompat.getFont(getApplicationContext(), R.font.opensans);
     }
 
 }

@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
 
         }
-        /*SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         if (pref.getBoolean("reproducirMusica", false)){
             mediaPlayer = MediaPlayer.create(this, R.raw.sound_relax);
             mediaPlayer.start();
-        }*/
+        }
 
         setContentView(R.layout.activity_main);
 
